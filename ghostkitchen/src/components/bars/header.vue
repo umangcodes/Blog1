@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       links: [
-        { id: 1, title: "Home", icon: "home", path: "/home" },
+        { id: 1, title: "Home", icon: "home", path: "/" },
         { id: 3, title: "About", icon: "information", path: "/about" },
       ],
       productLinks: [
