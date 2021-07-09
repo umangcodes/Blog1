@@ -1,9 +1,10 @@
 <template>
-  <v-footer app absolute padless class="#003d00--text">
+  <v-footer app absolute dark>
     <v-row>
-      <v-col class="mt-4 text-center" cols="12" dark>
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-        asfppadf
+      <v-col class="pt-2 mt-1 text-center" cols="12" dark>
+        <strong>
+          {{ new Date().getFullYear() }} — Project developed by Umang A</strong
+        >
       </v-col>
     </v-row>
   </v-footer>
