@@ -11,10 +11,10 @@
       <v-divider class="mx-1" vertical></v-divider>
     </div>
     <div class="text-center">
-      <v-menu open-on-hover top offset-y>
+      <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on, attrs }">
           <v-btn text rounded v-bind="attrs" v-on="on">
-            <v-icon class="pa-1">mdi-cart</v-icon> Products
+            <v-icon class="pa-1">mdi-cart</v-icon> Our Services
           </v-btn>
         </template>
         <v-list>
@@ -42,6 +42,12 @@ export default {
         { id: 3, title: "About", icon: "information", path: "/about" },
       ],
       productLinks: [
+        {
+          id: 2,
+          title: "Services",
+          icon: "room-service",
+          path: "/services",
+        },
         {
           id: 2,
           title: "Products",

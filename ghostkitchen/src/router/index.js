@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Products from "@/views/Products.vue";
 import Checkout from "@/views/checkout.vue";
+import Services from "@/views/services.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -29,6 +30,11 @@ const routes = [
     path: "/checkout",
     name: "Checkout",
     component: Checkout,
+  },
+  {
+    path: "/services",
+    name: "Services",
+    component: Services,
   },
 ];
 
