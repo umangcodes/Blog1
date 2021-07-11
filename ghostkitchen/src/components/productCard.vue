@@ -10,41 +10,69 @@
 
     <v-img
       height="250"
+      class="white--text align-end"
       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-
-    <v-card-title>{{ value.title }}</v-card-title>
-
+    >
+      <v-card-title>{{ product.name }}</v-card-title>
+    </v-img>
+    <v-card-subtitle class="mx-1">{{ product.category }}</v-card-subtitle>
     <v-card-text>
       <v-row align="center" class="mx-0">
         <v-rating
-          :value="value.ratings"
+          :value="product.ratings"
           color="amber"
           dense
           half-increments
           readonly
           size="14"
+          class="pa-0 mt-0"
         ></v-rating>
 
-        <div class="grey--text ms-4">{{ value.ratings }}</div>
+        <div class="grey--text pa-0">{{ product.ratings }}</div>
       </v-row>
 
-      <div class="my-4 text-subtitle-1">Exp$$ • Genre</div>
-
-      <div>
-        {{ value.text }}
-      </div>
+      <div class="mx-1 my-4 text-subtitle-1">{{ product.price }}</div>
     </v-card-text>
-
+    <v-card-actions>
+      <v-btn color="orange lighten-2" text> Product Details </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn icon @click="product.showDetails = !product.showDetails">
+        <v-icon>{{
+          product.showDetails ? "mdi-chevron-up" : "mdi-chevron-down"
+        }}</v-icon>
+      </v-btn>
+    </v-card-actions>
     <v-divider class="mx-4"></v-divider>
-    <v-card-text>
-      <v-icon>mdi-exclamation-thick</v-icon>allergens:
-      {{ value.allergies }}</v-card-text
-    >
+    <v-expand-transition>
+      <div v-show="product.showDetails">
+        <v-card flat>
+          <!-- TODO:: change this -->
+          <v-card-text>
+            <strong>whats in it?</strong>
+            <v-divider class="mr-16"></v-divider>
+            <div>
+              {{ product.text }}
+            </div>
+
+            <strong>Nutritional Information</strong>
+            <v-divider class="mr-16"></v-divider>
+            <div v-for="nutrition in product.nutriInfo" :key="nutrition">
+              {{ nutrition }}
+            </div>
+          </v-card-text>
+          <v-divider class="mx-4"></v-divider>
+          <v-card-text>
+            <v-icon>mdi-exclamation-thick</v-icon>allergens:
+            {{ product.allergens }}</v-card-text
+          >
+        </v-card>
+      </div>
+    </v-expand-transition>
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="rgba(0,0,0,0.1)" @click="reserve"> Details </v-btn>
+      <v-btn @click="shortList(product.id)"><v-icon>mdi-plus</v-icon></v-btn>
+      <v-btn color="rgba(0,0,0,0.1)"> Details </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -52,7 +80,13 @@
 <script>
 export default {
   props: {
-    value: [],
+    product: [],
+  },
+  methods: {
+    shortList(id) {
+      console.log(id);
+      this.$store.dispatch("shortListProduct", id);
+    },
   },
 };
 </script>

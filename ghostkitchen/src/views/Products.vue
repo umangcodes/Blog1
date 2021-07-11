@@ -37,7 +37,7 @@
         </v-hover>
       </v-col> -->
       <v-col v-for="demo in demos" :key="demo.id" cols="12" sm="4">
-        <ProductCard :value="demo" />
+        <ProductCard :product="demo" />
       </v-col>
     </v-row>
     <v-row>
@@ -59,30 +59,34 @@ export default {
   },
   data() {
     return {
-      demos: [
-        {
-          id: 1,
-          title: "Card 1",
-          ratings: 5,
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
-          allergies: "None",
-        },
-        {
-          id: 2,
-          title: "Card 2",
-          ratings: 3.5,
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
-          allergies: "Nuts, soy",
-        },
-        {
-          id: 3,
-          title: "Card 3",
-          ratings: 4,
-          text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
-          allergies: "None",
-        },
-      ],
+      // demos: [
+      //   {
+      //     id: 1,
+      //     title: "Card 1",
+      //     ratings: 5,
+      //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
+      //     allergies: "None",
+      //   },
+      //   {
+      //     id: 2,
+      //     title: "Card 2",
+      //     ratings: 3.5,
+      //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
+      //     allergies: "Nuts, soy",
+      //   },
+      //   {
+      //     id: 3,
+      //     title: "Card 3",
+      //     ratings: 4,
+      //     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus magni quaerat repudiandae. Quia itaque harum tempora tempore vitae porro aspernatur iure doloribus, autem molestias corrupti!",
+      //     allergies: "None",
+      //   },
+      // ],
+      demos: this.$store.state.products,
     };
+  },
+  created() {
+    console.log(this.demos);
   },
 };
 </script>
