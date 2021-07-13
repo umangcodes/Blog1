@@ -8,8 +8,8 @@
     </v-row>
     <v-row>
       <v-col
-        v-for="product in products"
-        :key="product.productId"
+        v-for="product in cart"
+        :key="`${product.productId}-cart`"
         cols="12"
         md="4"
       >
@@ -80,8 +80,12 @@ export default {
       //   },
       // ],
       products: this.$store.state.products,
+      cart: this.$store.state.cart,
     };
   },
+  // updated: {
+  //   cart: this.$store.state.cart,
+  // },
   methods: {
     removeProduct(id) {
       console.log(id),

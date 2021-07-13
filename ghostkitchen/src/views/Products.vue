@@ -1,10 +1,23 @@
 <template>
-  <v-container class="pt-8">
+  <v-container class="pt-8 pb-8">
+    <!-- <v-card flat height="100vh" background="rgba(0,0,0,1)"> -->
     <v-row>
+      <h1 class="pa-1">Featured Products</h1>
+    </v-row>
+    <v-row class="mt-1 mb-1">
+      <v-divider></v-divider>
+    </v-row>
+    <v-row class="mt-2 mb-2 pt-2 pb-2">
       <ProductsCarousel />
     </v-row>
-    <v-divider></v-divider>
-    <v-row class="mt-5">
+    <v-row class="mt-1 mb-1">
+      <v-divider></v-divider>
+    </v-row>
+    <!-- </v-card> -->
+    <v-row>
+      <h1 class="pa-1">Our Range</h1>
+    </v-row>
+    <v-row class="mt-1 mb-1">
       <!-- <v-col v-for="demo in demos" :key="demo.id" cols="12" md="4">
         <v-hover v-slot="{ hover }">
           <v-card
@@ -36,7 +49,12 @@
           </v-card>
         </v-hover>
       </v-col> -->
-      <v-col v-for="demo in demos" :key="demo.id" cols="12" sm="4">
+      <v-col
+        v-for="demo in demos"
+        :key="`${demo.id}-product-card`"
+        cols="12"
+        sm="4"
+      >
         <ProductCard :product="demo" />
       </v-col>
     </v-row>

@@ -18,7 +18,7 @@
           v-show="!product.showDetails"
           ><v-icon>mdi-delete</v-icon>
         </v-btn>
-        <v-btn icon @click="toggleDetails(product.id)">
+        <v-btn icon @click="toggle(product.id)">
           <v-icon>{{
             product.showDetails ? "mdi-chevron-up" : "mdi-chevron-down"
           }}</v-icon>
@@ -55,9 +55,10 @@ export default {
     removeProduct(id) {
       console.log(id),
         // (this.product = this.product.filter((product) => product.id != id));
-        this.$store.dispatch("shortListProduct", id);
+        this.$store.dispatch("removeFromCart", id);
+      this.$router.push("/checkout");
     },
-    toggleDetails(id) {
+    toggle(id) {
       this.$store.dispatch("toggleDetails", id);
     },
   },

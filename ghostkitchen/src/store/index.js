@@ -114,6 +114,14 @@ export default new Vuex.Store({
       state.products[index].showDetails = !state.products[index].showDetails;
       console.log(state.products[index].showDetails);
     },
+    UPDATE_CART(state, id) {
+      state.cart.push(state.products.find((product) => product.id == id));
+    },
+    UPDATE_CART_R(state, id) {
+      state.cart = state.cart.filter((product) => product.id !== id);
+      console.log(state.cart);
+      
+    },
   },
   actions: {
     shortListProduct({ commit }, id) {
@@ -121,6 +129,12 @@ export default new Vuex.Store({
     },
     toggleDetails({ commit }, id) {
       commit("TOGGLE_DISPLAY", id);
+    },
+    addToCart({ commit }, id) {
+      commit("UPDATE_CART", id);
+    },
+    removeFromCart({ commit }, id) {
+      commit("UPDATE_CART_R", id);
     },
   },
   modules: {},

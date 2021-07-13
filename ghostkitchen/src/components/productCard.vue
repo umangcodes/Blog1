@@ -1,5 +1,5 @@
 <template>
-  <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+  <v-card class="mx-auto my-1" max-width="374">
     <template slot="progress">
       <v-progress-linear
         color="deep-purple"
@@ -71,7 +71,7 @@
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn @click="shortList(product.id)"><v-icon>mdi-plus</v-icon></v-btn>
+      <v-btn @click="addToCart(product.id)"><v-icon>mdi-plus</v-icon></v-btn>
       <v-btn color="rgba(0,0,0,0.1)"> Details </v-btn>
     </v-card-actions>
   </v-card>
@@ -86,6 +86,10 @@ export default {
     shortList(id) {
       console.log(id);
       this.$store.dispatch("shortListProduct", id);
+    },
+    addToCart(id) {
+      console.log(id);
+      this.$store.dispatch("addToCart", id);
     },
   },
 };
