@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 3,
+      "img": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "name": "Hummus platter",
+      "category": "Spreads",
+      "size": "250/500 gm",
+      "ratings": 4,
+      "price": "350/400 INR",
+      "shortList": false,
+      "showDetails": false,
+      "recommended": true,
+      "nutriInfo": {
+        "cal": "200 cal",
+        "carbs": "",
+        "sodium": "",
+        "protein": "",
+        "fat": "",
+        "others": ""
+      },
+      "allergens": ["soy", "nuts"]
+    },
+    {
+      "id": 4,
+      "img": "https://cdn.vuetifyjs.com/images/cards/cooking.png",
+      "name": "sample",
+      "category": "sample",
+      "size": "xx ml",
+      "ratings": 2.5,
+      "price": "xx/xxx INR",
+      "shortList": false,
+      "showDetails": false,
+      "recommended": true,
+      "nutriInfo": {
+        "cal": "Calories: 200 cals",
+        "carbs": "",
+        "sodium": "",
+        "protein": "",
+        "fat": "",
+        "others": ""
+      },
+      "allergens": ["soy", "nuts"]
+    }
+  ]
+}
