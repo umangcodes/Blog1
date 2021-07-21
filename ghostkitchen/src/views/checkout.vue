@@ -17,7 +17,7 @@
                 elevation="1"
                 icon
                 absolute
-                bottom
+                bottom 
                 right
                 large
                 @click="toProducts()"
