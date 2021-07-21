@@ -7,9 +7,28 @@
       <v-divider></v-divider>
     </v-row>
     <v-row>
-      <h2 v-if="!cart">
-        Please visit our store to select the products to add them to the cart
-      </h2>
+      <v-col v-if="cart.length == 0">
+        <v-card flat>
+          <v-card-title>Nothing added</v-card-title>
+          <v-card-text>
+            Please visit our store to add products to your cart.
+            <v-fab-transition>
+              <v-btn
+                elevation="1"
+                icon
+                absolute
+                bottom
+                right
+                large
+                @click="toProducts()"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </v-fab-transition>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
       <v-col
         v-for="product in cart"
         :key="`${product.productId}-cart`"
@@ -37,9 +56,15 @@ export default {
       console.log(id),
         (this.products = this.products.filter((product) => product.id != id));
     },
+    toProducts() {
+      this.$router.push("/products");
+    },
   },
   computed: {
     ...mapState(["products", "cart"]),
+  },
+  created() {
+    console.log(this.cart);
   },
 };
 </script>

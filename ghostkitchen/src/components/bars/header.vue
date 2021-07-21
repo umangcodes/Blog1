@@ -14,7 +14,7 @@
     <div class="text-center">
       <v-menu open-on-hover offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn text rounded v-bind="attrs" v-on="on">
+          <v-btn text rounded v-bind="attrs" v-on="on" to="/services">
             <v-icon class="pa-1">mdi-cart</v-icon> Our Services
           </v-btn>
         </template>
