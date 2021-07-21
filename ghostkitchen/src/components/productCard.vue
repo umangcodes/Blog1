@@ -48,7 +48,7 @@
         <v-card flat>
           <!-- TODO:: change this -->
           <v-card-text>
-            <strong>whats in it?</strong>
+            <strong>Ingredients</strong>
             <v-divider class="mr-16"></v-divider>
             <div>
               {{ product.text }}
@@ -62,9 +62,15 @@
           </v-card-text>
           <v-divider class="mx-4"></v-divider>
           <v-card-text>
-            <v-icon>mdi-exclamation-thick</v-icon>allergens:
-            {{ product.allergens }}</v-card-text
-          >
+            allergens:
+            <span
+              v-for="content in product.allergens"
+              :key="`${content}-product-allergens`"
+            >
+              <v-icon>mdi-exclamation-thick</v-icon>
+              {{ content }}</span
+            >
+          </v-card-text>
         </v-card>
       </div>
     </v-expand-transition>
@@ -90,6 +96,14 @@ export default {
     addToCart(id) {
       console.log(id);
       this.$store.dispatch("addToCart", id);
+    },
+  },
+  computed: {
+    headers() {
+      return [
+        { text: "content", value: "name" },
+        { text: "value", value: "info" },
+      ];
     },
   },
 };

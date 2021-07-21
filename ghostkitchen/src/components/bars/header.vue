@@ -1,5 +1,6 @@
 <template>
-  <v-app-bar app hide-on-scroll class="custom" dark height="55">
+  <v-app-bar app class="custom" dark height="55">
+    <!-- hide-on-scroll -->
     <v-app-bar-nav-icon> UA</v-app-bar-nav-icon>
     <v-toolbar-title> FOOD BLOG </v-toolbar-title>
     <v-spacer></v-spacer>
@@ -38,23 +39,23 @@ export default {
   data() {
     return {
       links: [
-        { id: 1, title: "Home", icon: "home", path: "/" },
-        { id: 3, title: "About", icon: "information", path: "/about" },
+        { id: 91, title: "Home", icon: "home", path: "/" },
+        { id: 92, title: "About", icon: "information", path: "/about" },
       ],
       productLinks: [
         {
-          id: 2,
+          id: 911,
           title: "Services",
           icon: "room-service",
           path: "/services",
         },
         {
-          id: 2,
+          id: 912,
           title: "Products",
           icon: "format-list-bulleted-square",
           path: "/products",
         },
-        { id: 4, title: "Cart", icon: "cart", path: "/checkout" },
+        { id: 913, title: "Cart", icon: "cart", path: "/checkout" },
       ],
     };
   },

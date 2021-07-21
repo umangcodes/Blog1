@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import productServices from "../services/productServices";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -83,17 +83,19 @@ export default new Vuex.Store({
         showDetails: false,
         recommended: true,
         nutriInfo: {
-          cal: "200 cal",
+          cal: "Calories: 200 cals",
           carbs: "",
           sodium: "",
           protein: "",
           fat: "",
           others: "",
         },
+
         allergens: ["soy", "nuts"],
       },
     ],
     cart: [],
+    newProducts: [],
   },
   mutations: {
     SHORTLIST_PRODUCT(state, id) {
@@ -120,7 +122,11 @@ export default new Vuex.Store({
     UPDATE_CART_R(state, id) {
       state.cart = state.cart.filter((product) => product.id !== id);
       console.log(state.cart);
-      
+    },
+    NEW_PRODUCTS(state, data) {
+      state.newProducts = data;
+      console.log("from state");
+      console.log(state.newProducts);
     },
   },
   actions: {
@@ -135,6 +141,10 @@ export default new Vuex.Store({
     },
     removeFromCart({ commit }, id) {
       commit("UPDATE_CART_R", id);
+    },
+    async getNewProducts({ commit }) {
+      const data = await productServices.getproducts();
+      commit("NEW_PRODUCTS", data);
     },
   },
   modules: {},

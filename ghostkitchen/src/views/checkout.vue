@@ -7,6 +7,9 @@
       <v-divider></v-divider>
     </v-row>
     <v-row>
+      <h2 v-if="!cart">
+        Please visit our store to select the products to add them to the cart
+      </h2>
       <v-col
         v-for="product in cart"
         :key="`${product.productId}-cart`"
@@ -21,76 +24,22 @@
 
 <script>
 import CartCards from "@/components/cartCards.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     CartCards,
   },
   data() {
-    return {
-      // products: [
-      //   {
-      //     id: 1,
-      //     name: "smoothies",
-      //     img: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      //     size: "200 ml",
-      //     price: "150 INR",
-      //     allergens: "None",
-      //     show: false,
-      //     inList: true,
-      //   },
-      //   {
-      //     id: 2,
-      //     name: "Hummus Platter",
-      //     img: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      //     size: "250 gm",
-      //     price: "250 INR",
-      //     allergens: "None",
-      //     show: false,
-      //     inList: true,
-      //   },
-      //   {
-      //     id: 3,
-      //     name: "Vegan Milk Bottle",
-      //     img: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      //     size: "200 ml",
-      //     price: "70 INR",
-      //     allergens: "may contain Soy!",
-      //     show: false,
-      //     inList: true,
-      //   },
-      //   {
-      //     id: 4,
-      //     name: "sample",
-      //     img: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      //     size: "xx ml",
-      //     price: "xx INR",
-      //     allergens: "xxx",
-      //     show: false,
-      //     inList: true,
-      //   },
-      //   {
-      //     id: 5,
-      //     name: "sample",
-      //     img: "https://cdn.vuetifyjs.com/images/cards/cooking.png",
-      //     size: "xx ml",
-      //     price: "xx INR",
-      //     allergens: "xxx",
-      //     show: false,
-      //     inList: true,
-      //   },
-      // ],
-      products: this.$store.state.products,
-      cart: this.$store.state.cart,
-    };
+    return {};
   },
-  // updated: {
-  //   cart: this.$store.state.cart,
-  // },
   methods: {
     removeProduct(id) {
       console.log(id),
         (this.products = this.products.filter((product) => product.id != id));
     },
+  },
+  computed: {
+    ...mapState(["products", "cart"]),
   },
 };
 </script>

@@ -50,7 +50,7 @@
         </v-hover>
       </v-col> -->
       <v-col
-        v-for="demo in demos"
+        v-for="demo in products"
         :key="`${demo.id}-product-card`"
         cols="12"
         sm="4"
@@ -68,6 +68,7 @@
 import ProductsCarousel from "@/components/productsCarousel.vue";
 import ProductCard from "@/components/productCard.vue";
 import Specials from "@/components/specials.vue";
+import { mapState } from "vuex";
 export default {
   name: "Products",
   components: {
@@ -103,8 +104,8 @@ export default {
       demos: this.$store.state.products,
     };
   },
-  created() {
-    console.log(this.demos);
+  computed: {
+    ...mapState(["products"]),
   },
 };
 </script>
