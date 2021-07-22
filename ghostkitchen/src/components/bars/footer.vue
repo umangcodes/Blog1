@@ -4,7 +4,7 @@
       <v-col class="pt-2 mt-1 text-center" cols="12" dark> -->
     <div class="footerContent">
       <strong>
-        {{ new Date().getFullYear() }} — Project developed by Umang A</strong
+       &copy; {{ new Date().getFullYear() }} — Project developed by Umang A</strong
       >
     </div>
     <!-- </v-col>
