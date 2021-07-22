@@ -21,7 +21,7 @@
             Fill the following form to contact us
           </v-card-subtitle>
           <v-card-text>
-            <v-form @submit.prevent="submitForm">
+            <v-form ref="contactUsForm">
               <v-text-field
                 prepend-icon="mdi-account"
                 label="Your name"
@@ -94,20 +94,25 @@
                 v-model="order.coupon"
               >
               </v-text-field>
+              <v-card-subtitle
+                >Please note this feature is under dev. The submit button will
+                remain disabled untill the feature is ready and tested.
+                Apologies for the inconvenience.</v-card-subtitle
+              >
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="success" @click="submitForm()">Submit</v-btn>
-            <v-btn color="warning">Reset</v-btn>
+            <v-btn disabled color="success" @click="submitForm()">Submit</v-btn>
+            <v-btn color="warning" @click="formReset()">Reset</v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
       </v-col>
       <v-col cols="12" md="4">
         <v-card elevation="1" class="rounded-xl">
-          <v-card-title>Ghost Kitchen 1</v-card-title>
-          <v-card-subtitle>Promoting health and hygiene</v-card-subtitle>
+          <v-card-title>About us</v-card-title>
+          <v-card-subtitle>Ghost Kitchen</v-card-subtitle>
           <v-img
             lazy-src="https://picsum.photos/id/11/10/6"
             src="https://picsum.photos/id/11/500/300"
@@ -124,6 +129,7 @@
             <v-btn icon><v-icon>mdi-facebook</v-icon></v-btn>
             <v-btn icon><v-icon>mdi-twitter</v-icon></v-btn>
             <v-btn icon><v-icon>mdi-reddit</v-icon></v-btn>
+            <v-btn icon><v-icon>mdi-email</v-icon></v-btn>
             <v-spacer></v-spacer>
           </v-card-actions>
         </v-card>
@@ -184,7 +190,15 @@ export default {
       console.log(this.order);
     },
     formReset() {
-      console.log("form clear");
+      this.$refs.contactUsForm.reset();
+      // (this.order.name = ""),
+      //   (this.order.email = ""),
+      //   (this.order.date = ""),
+      //   (this.order.reference = ""),
+      //   (this.order.coupon = ""),
+      //   (this.order.referenceClass = ""),
+      //   (this.order.modal = false),
+      //   console.log("form clear");
     },
   },
 };
